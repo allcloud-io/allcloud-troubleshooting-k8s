@@ -138,7 +138,7 @@ resource "aws_instance" "hosts" {
 #!/bin/bash
 
 yum install -y docker
-sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/sysconfig/selinux
+sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
 systemctl enable docker
 reboot
 EOF
