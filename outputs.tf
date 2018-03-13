@@ -1,3 +1,3 @@
 output "ip_addresses" {
-  value = "${aws_instance.hosts.*.private_ip}"
+  value = "${aws_instance.hosts.*.public_ip}"
 }
