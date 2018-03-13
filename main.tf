@@ -119,7 +119,7 @@ resource "aws_security_group_rule" "self" {
 resource "aws_security_group_rule" "ssh" {
   security_group_id = "${aws_security_group.hosts.id}"
   type              = "ingress"
-  cidr_blocks       = "${var.management_addresses}"
+  cidr_blocks       = ["${var.management_address}"]
   protocol          = "tcp"
   from_port         = "22"
   to_port           = "22"
@@ -130,7 +130,7 @@ resource "aws_instance" "hosts" {
   ami                         = "ami-337be65c"
   instance_type               = "t2.micro"
   associate_public_ip_address = true
-  key_name                    = "Sandbox-Frankfurt"
+  key_name                    = "${var.key_name}"
   subnet_id                   = "${aws_subnet.public.id}"
   vpc_security_group_ids      = ["${aws_security_group.hosts.id}"]
 

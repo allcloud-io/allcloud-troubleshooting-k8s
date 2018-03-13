@@ -1,3 +1,3 @@
-variable "management_addresses" {
-  type    = "list"
-}
+variable "management_address" {}
+
+variable "key_name" {}
